@@ -3,13 +3,13 @@
 console.log ('Hello World');
 //store Constructor
 const tableData = document.getElementById('table-data');
+const storeHoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 function CookieStore(name, min, max, avg) {
   this.cityName = name;
   this.custMin = min;
   this.custMax = max;
   this.avgSales =  avg;
-  this.storeHoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
   this.salesPerHour = [];
   this.dailySaleTotal = 0;
 }
@@ -20,7 +20,7 @@ CookieStore.prototype.randomCustPerHour = function () {
 
 CookieStore.prototype.calcHourlySales = function (){ 
   let randomSales = 0;
-  for (let i = 0; i < this.storeHoursArray.length; i++) {
+  for (let i = 0; i < storeHoursArray.length; i++) {
     randomSales = Math.ceil(this.randomCustPerHour() * this.avgSales);
     this.salesPerHour.push(randomSales);
     this.dailySaleTotal += randomSales;
