@@ -47,10 +47,29 @@ CookieStore.prototype.cookiesSold = function(){
 
 // create elements
 
+function renderHeader(){
+  let container = document.getElementById('table-data');
+  let tableHeadEl = document.createElement('thead');
+  let tableHeadRowEl = document.createElement('tr');
+  let tableHeaderEl = document.createElement('th');
+  //container.appendChild(tableHeadEl);
+  tableHeadRowEl.appendChild(tableHeaderEl);
+  tableHeadEl.appendChild(tableHeadRowEl);
+  for (let i = 0; i < storeHoursArray.length; i++) {
+    tableHeaderEl = document.createElement('th');
+    tableHeaderEl.textContent = storeHoursArray[i];
+    tableHeadRowEl.appendChild(tableHeaderEl);
+  }
+  let tableHeaderTotalEl = document.createElement('th');
+  tableHeaderTotalEl.textContent = 'Total';
+  tableHeadRowEl.appendChild(tableHeaderTotalEl);
+  container.appendChild(tableHeadEl);
+}
+
 CookieStore.prototype.render = function() {
   this.cookiesSold();
   let container = document.getElementById('table-data');
-  let table = document.createElement('table');
+  // let table = document.createElement('table');
   let tr = document.createElement('tr');
   let td = document.createElement('td');
   td.textContent = this.name;
@@ -64,8 +83,8 @@ CookieStore.prototype.render = function() {
   td = document.createElement('td');
   td.textContent = this.dailySaleTotal;
   tr.appendChild(td);
-  table.appendChild (tr);
-  container.appendChild(table);
+  container.appendChild(tr);
+  // container.appendChild(table);
   // append to the DOM
 //  CookieStore.appendChild(tr);
 };
@@ -98,6 +117,7 @@ CookieStore.prototype.render = function() {
 //   seattleList.appendChild(liTotal);
 // }
 
+
 let seattle = new CookieStore('Seattle', 23, 65, 6.3);
 console.log(seattle);
 let tokyo = new CookieStore('Tokyo', 3, 24, 1.2);
@@ -105,6 +125,7 @@ let dubai = new CookieStore('Dubai', 11, 38, 3.7);
 let paris = new CookieStore('Paris', 20, 38, 2.3);
 let lima = new CookieStore('Lima', 2, 16, 4.6);
 
+renderHeader();
 seattle.render();
 tokyo.render();
 dubai.render();
