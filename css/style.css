@@ -24,9 +24,12 @@ body {
   background-color: darkgoldenrod;
 }
 
-footer img {
-  margin-left: 50px;
+
+img {
+  margin-left: 2in;
   float: left;
+  width: 85px;
+  height: auto;
 }
 
 header {
