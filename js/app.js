@@ -6,6 +6,11 @@ const tableData = document.getElementById('table-data');
 const storeHoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let tfoot = document.getElementById('table-data');
 
+// this is for my forms
+const myForm = document.getElementById('form');
+console.log(myForm);
+let allCities = [];
+
 
 const myContainer = document.getElementById('container');
 let allStores = [];
@@ -48,6 +53,24 @@ CookieStore.prototype.cookiesSold = function () {
 // };
 
 // create elements
+
+// event handle function
+function handleSubmit(event){
+  event.preventDefault();
+  console.log(event.target.city.value);
+  console.log(event.target.min.value);
+  console.log(event.target.max.value);
+  console.log(event.target.avg.value);
+  let city = event.target.city.value;
+  let min = event.target.min.value;
+  let max = event.target.max.value;
+  let avg = event.target.avg.value;
+
+  allCities.push(city, min,max, avg);
+  // let new CookieStore = new Store(city, min, max, avg);
+  // newCookieStore.render();
+
+}
 
 function renderHeader() {
   let container = document.getElementById('table-data');
@@ -135,7 +158,7 @@ function totalFooter() {
     }
     td.textContent = columnTotal;
     grandTotal += columnTotal;
-    tr.appendChild(td)
+    tr.appendChild(td);
   }
   td = document.createElement('td');
   td.textContent = grandTotal;
@@ -159,6 +182,8 @@ lima.render();
 totalFooter();
 
 console.log(allStores);
+
+myForm.addEventListener('submit', handleSubmit);
 
 // another way to render all
 // function renderAll(){
