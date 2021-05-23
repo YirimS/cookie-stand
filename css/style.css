@@ -20,3 +20,19 @@ th {
   font-weight: bold;
 }
 
+body {
+  background-color: darkgoldenrod;
+}
+
+
+img {
+  margin-left: 2in;
+  float: left;
+  width: 85px;
+  height: auto;
+}
+
+header {
+  background-color: #444;
+  height: 100px;
+}
