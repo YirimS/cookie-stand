@@ -57,19 +57,20 @@ CookieStore.prototype.cookiesSold = function () {
 // event handle function
 function handleSubmit(event){
   event.preventDefault();
-  console.log(event.target.city.value);
-  console.log(event.target.min.value);
-  console.log(event.target.max.value);
-  console.log(event.target.avg.value);
+  // console.log(event.target.city.value);
+  // console.log(event.target.min.value);
+  // console.log(event.target.max.value);
+  // console.log(event.target.avg.value);
   let city = event.target.city.value;
-  let min = event.target.min.value;
-  let max = event.target.max.value;
-  let avg = event.target.avg.value;
+  let min = parseInt(event.target.min.value);
+  let max = parseInt(event.target.max.value);
+  let avg = parseInt(event.target.avg.value);
 
   allCities.push(city, min,max, avg);
+  
   // let new CookieStore = new Store(city, min, max, avg);
   // newCookieStore.render();
-
+  
 }
 
 function renderHeader() {
@@ -172,6 +173,7 @@ let tokyo = new CookieStore('Tokyo', 3, 24, 1.2);
 let dubai = new CookieStore('Dubai', 11, 38, 3.7);
 let paris = new CookieStore('Paris', 20, 38, 2.3);
 let lima = new CookieStore('Lima', 2, 16, 4.6);
+
 
 renderHeader();
 seattle.render();
