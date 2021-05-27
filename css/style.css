@@ -36,3 +36,7 @@ header {
   background-color: #444;
   height: 100px;
 }
+
+ul {
+list-style: circle;
+}
