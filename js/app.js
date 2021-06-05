@@ -31,7 +31,7 @@ CookieStore.prototype.randomCustPerHour = function () {
 CookieStore.prototype.cookiesSold = function () {
   for (let i = 0; i < storeHoursArray.length; i++) {
     let sales = Math.ceil(this.avgSales * this.randomCustPerHour());
-    console.log(sales);
+    // console.log(sales);
     this.salesPerHour.push(sales);
     this.dailySaleTotal = this.dailySaleTotal + sales;
   }
@@ -69,8 +69,14 @@ function handleSubmit(event){
   allCities.push(city, min,max, avg);
   
   // let new CookieStore = new Store(city, min, max, avg);
-  // newCookieStore.render();
+  // tfoot.innerHTML = '';
+  // renderfooter();
   
+  // event.target.name.value = '';
+  // event.target.min.value = '';
+  // event.target.max.value = '';
+  // event.target.avg.value = '';
+
 }
 
 function renderHeader() {
