@@ -8,17 +8,39 @@
   <a href="index.html">Main Page</a>
 </head>
 <body>
-  <header>
+  <header> 
     <h1>Pat's Salmon Cookies</h1>
   </header>
   <main>
-    <form>
+    <form id="form"> 
       <fieldset>
-        
+        <legend>Enter the city and values here to see sales projection </legend>
+        <label for="city">city</label>
+        <input type="text" required id="cityname" name="city">
+
+        <label for="min">Min cookies per hour</label>
+        <input type="number" required id="min" name= "min">
+
+        <label for="max">Max cookies per hour</label>
+        <input type="number" required id="max" name="max">
+
+        <label for="avg">Average cookies per hour</label>
+        <input type="number"required id="avg" name='avg'>
+
+        <button type="submit">Submit</button>
+
       </fieldset>
     </form>
-
-    <table id="table-data"></table>
+  <table id="table-data">
+    <thead id="theadName">Sales Record
+      <tr>
+      </tr>
+    </thead>
+    <tfoot id="tfoot"></tfoot>
+  </table>
+  <footer>
+    &copy 2021 Y Seck
+  </footer>
   </main>
   <script src="js/app.js"></script>
 </body>

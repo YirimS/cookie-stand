@@ -6,6 +6,11 @@ const tableData = document.getElementById('table-data');
 const storeHoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let tfoot = document.getElementById('table-data');
 
+// this is for my forms
+const myForm = document.getElementById('form');
+console.log(myForm);
+let allCities = [];
+
 
 const myContainer = document.getElementById('container');
 let allStores = [];
@@ -26,7 +31,7 @@ CookieStore.prototype.randomCustPerHour = function () {
 CookieStore.prototype.cookiesSold = function () {
   for (let i = 0; i < storeHoursArray.length; i++) {
     let sales = Math.ceil(this.avgSales * this.randomCustPerHour());
-    console.log(sales);
+    // console.log(sales);
     this.salesPerHour.push(sales);
     this.dailySaleTotal = this.dailySaleTotal + sales;
   }
@@ -48,6 +53,31 @@ CookieStore.prototype.cookiesSold = function () {
 // };
 
 // create elements
+
+// event handle function
+function handleSubmit(event){
+  event.preventDefault();
+  // console.log(event.target.city.value);
+  // console.log(event.target.min.value);
+  // console.log(event.target.max.value);
+  // console.log(event.target.avg.value);
+  let city = event.target.city.value;
+  let min = parseInt(event.target.min.value);
+  let max = parseInt(event.target.max.value);
+  let avg = parseInt(event.target.avg.value);
+
+  allCities.push(city, min,max, avg);
+  
+  // let new CookieStore = new Store(city, min, max, avg);
+  // tfoot.innerHTML = '';
+  // renderfooter();
+  
+  // event.target.name.value = '';
+  // event.target.min.value = '';
+  // event.target.max.value = '';
+  // event.target.avg.value = '';
+
+}
 
 function renderHeader() {
   let container = document.getElementById('table-data');
@@ -135,7 +165,7 @@ function totalFooter() {
     }
     td.textContent = columnTotal;
     grandTotal += columnTotal;
-    tr.appendChild(td)
+    tr.appendChild(td);
   }
   td = document.createElement('td');
   td.textContent = grandTotal;
@@ -150,6 +180,7 @@ let dubai = new CookieStore('Dubai', 11, 38, 3.7);
 let paris = new CookieStore('Paris', 20, 38, 2.3);
 let lima = new CookieStore('Lima', 2, 16, 4.6);
 
+
 renderHeader();
 seattle.render();
 tokyo.render();
@@ -159,6 +190,8 @@ lima.render();
 totalFooter();
 
 console.log(allStores);
+
+myForm.addEventListener('submit', handleSubmit);
 
 // another way to render all
 // function renderAll(){
